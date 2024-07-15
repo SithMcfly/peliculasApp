@@ -16,8 +16,13 @@ public class PeliculaCrud {
     List<Pelicula> peliculas = new ArrayList<>();
 
     public void insertarPelicula(Pelicula pelicula) throws IllegalArgumentException {
+        for (Pelicula peli : peliculas) {
+            if (peli.getTitulo().equalsIgnoreCase(pelicula.getTitulo())) {
+                throw new IllegalArgumentException("La pelicula " + pelicula.getTitulo().toUpperCase() + " ya esta registrada");
+            }
+        }
         peliculas.add(pelicula);
-        System.out.printf("Se añadió la pelicula %s\n", pelicula.getTitulo());
+        System.out.printf("Se agregó la pelicula %s \n", pelicula.getTitulo());
     }
 
     public void listarPeliculas() {
@@ -34,39 +39,28 @@ public class PeliculaCrud {
                 System.out.println("Se ha eliminado la pelicula " + titulo);
                 break;
             } else {
-                 System.out.printf("No se ha encontrado la película %s\n", titulo.toUpperCase());
+                System.out.printf("No se ha encontrado la película %s\n", titulo.toUpperCase());
             }
         }
     }
 
-    /*if (pelicula.getTitulo().equalsIgnoreCase(titulo)) {
-                peliculaEliminar = pelicula;
-                break;
-            }
-        }
-        if (peliculaEliminar != null) {
-            peliculas.remove(peliculaEliminar);
-            System.out.println("Se ha eliminado la pelicula " + titulo);
-        } else {
-            System.out.printf("No se ha encontrado la película %s\n", titulo.toUpperCase());
-        }
-    }
     
-    public String buscarPelicula(String titulo) {
+    public void buscarPelicula(String titulo) {
         for (Pelicula pelicula : peliculas) {
-            if (pelicula.getTitulo().equalsIgnoreCase(titulo)) {
-                return pelicula.toString();
+            if (titulo.equalsIgnoreCase(pelicula.getTitulo())) {
+                pelicula.toString();
+                break;
+            } else {
+                System.out.println("no encontrada");
             }
-        }
-        return "No se encontro la película " + titulo.toUpperCase();
-    }*/
-
-    public void actualizarDatos(String titulo, String nuevoTitulo, String quien, String lugar, String fecha) {
+        } 
+    }
+    public void actualizarDatos(String titulo, String quien, String lugar, String fecha) {
 
         for (Pelicula pelicula : peliculas) {
             if (pelicula.getTitulo().equalsIgnoreCase(titulo)) {
-                if (nuevoTitulo != titulo) {
-                    pelicula.setTitulo(nuevoTitulo);
+                if (titulo != pelicula.getTitulo()) {
+                    pelicula.setTitulo(titulo);
                 }
                 if (pelicula.getQuien() != quien) {
                     pelicula.setQuien(quien);

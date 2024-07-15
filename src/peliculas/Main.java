@@ -9,25 +9,31 @@ package peliculas;
  * @author Sith_Mcfly
  */
 public class Main {
+
     public static void main(String[] args) {
         PeliculaCrud crud = new PeliculaCrud();
-        
-        crud.insertarPelicula(new Pelicula("Batman"));
-        crud.insertarPelicula(new Pelicula("Z"));
-        crud.insertarPelicula(new Pelicula("Civil War"));
-        
-        
-        crud.listarPeliculas();
-        
-        
-        
-        
-             
-        
-         
-        
+
+        try {
+            crud.insertarPelicula(new Pelicula("Z"));
+            crud.insertarPelicula(new Pelicula("Civil War"));
+
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
+        crud.listarPeliculas();
+        crud.eliminarPelicula("Z");
+        try {
+            crud.insertarPelicula(new Pelicula("Gattaca"));
+            crud.insertarPelicula(new Pelicula("Matrix"));
+            crud.insertarPelicula(new Pelicula("Z"));
+            crud.insertarPelicula(new Pelicula("Terminator"));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("******************************");
+        crud.listarPeliculas();
+        System.out.println("******************************");
+        crud.buscarPelicula("Z");
     }
-
     
-
+}
