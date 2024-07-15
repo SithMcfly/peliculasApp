@@ -15,9 +15,9 @@ public class PeliculaCrud {
 
     List<Pelicula> peliculas = new ArrayList<>();
 
-    public void insertarPelicula(Pelicula pelicula) {
+    public void insertarPelicula(Pelicula pelicula) throws IllegalArgumentException {
         peliculas.add(pelicula);
-        System.out.println("Se ha insertado la pelicula " + pelicula.getTitulo().toUpperCase());
+        System.out.printf("Se añadió la pelicula %s\n", pelicula.getTitulo());
     }
 
     public void listarPeliculas() {

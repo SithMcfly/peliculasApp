@@ -4,7 +4,6 @@
  */
 package peliculas;
 
-import java.util.Date;
 
 /**
  *
@@ -21,14 +20,14 @@ public class Pelicula {
     
     public Pelicula(String titulo) {
         this.titulo = titulo;
+                
     }
-
     public Pelicula(int id, String titulo, String lugar, String quien, String fecha) {
         this.id = id;
         this.titulo = titulo;
         this.lugar = lugar;
         this.quien = quien;
-        this.fecha = fecha;
+        this.fecha = fecha;  
     }
 
 
@@ -71,6 +70,7 @@ public class Pelicula {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+    
     
     @Override
     public String toString(){

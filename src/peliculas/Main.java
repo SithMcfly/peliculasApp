@@ -13,18 +13,15 @@ public class Main {
         PeliculaCrud crud = new PeliculaCrud();
         
         crud.insertarPelicula(new Pelicula("Batman"));
-        crud.listarPeliculas();
+        crud.insertarPelicula(new Pelicula("Z"));
+        crud.insertarPelicula(new Pelicula("Civil War"));
         
-        crud.actualizarDatos("Batman", "Batman Begins", "Guti", "cine", "01/01/2023");
-        crud.listarPeliculas();
-        crud.insertarPelicula(new Pelicula("X-Men"));
-        crud.insertarPelicula(new Pelicula("Acorralado"));
-        crud.insertarPelicula(new Pelicula("Star-Wars: na nueva esperanza"));
-        crud.insertarPelicula(new Pelicula("La Liga de la Justicia"));
         
         crud.listarPeliculas();
         
-       crud.eliminarPelicula("X-men");
+        
+        
+        
              
         
          
