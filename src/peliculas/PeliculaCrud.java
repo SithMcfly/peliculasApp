@@ -31,17 +31,20 @@ public class PeliculaCrud {
         }
     }
 
-    
-    public void eliminarPelicula (String titulo) throws IllegalArgumentException {
-        for(Pelicula pelicula : peliculas) {
-            if (pelicula.getTitulo().equalsIgnoreCase(titulo)){
+    public void eliminarPelicula(String titulo) throws IllegalArgumentException {
+        boolean eliminada = false;
+        for (Pelicula pelicula : peliculas) {
+            if (pelicula.getTitulo().equalsIgnoreCase(titulo)) {
                 peliculas.remove(pelicula);
+                eliminada=true;
                 System.out.printf("Se eliminó la pelicula %s\n", titulo);
-            } else {
-            throw new IllegalArgumentException("No se encontro la pelicula " + titulo);
-            }
+                break;
+            } 
+            } if (!eliminada) {
+                throw new IllegalArgumentException("No se encontro la pelicula " + titulo);
         }
     }
+
     /*public void eliminarPelicula(String titulo) {
         for (Pelicula pelicula : peliculas) {
             if (pelicula.getTitulo().equalsIgnoreCase(titulo)) {
@@ -51,15 +54,18 @@ public class PeliculaCrud {
         }
         System.out.printf("No se ha encontrado la película %s\n", titulo.toUpperCase());
     }*/
-
     public void buscarPelicula(String titulo) {
+        boolean encontrada = false;
         for (Pelicula pelicula : peliculas) {
             if (titulo.equalsIgnoreCase(pelicula.getTitulo())) {
                 System.out.println(pelicula.toString());
-                break;
+                encontrada = true;
             }
         }
-        System.out.println("no encontrada");
+        if (!encontrada) {
+            System.out.println("no encontrada");
+        }
+
     }
 
     public void actualizarDatos(String titulo, String quien, String lugar, String fecha) {

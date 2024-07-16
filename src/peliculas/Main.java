@@ -14,7 +14,7 @@ public class Main {
         PeliculaCrud crud = new PeliculaCrud();
         System.out.println("INSERTO");
         try {
-            crud.insertarPelicula(new Pelicula("Z"));
+            crud.insertarPelicula(new Pelicula("Rafa"));
             crud.insertarPelicula(new Pelicula("Civil War"));
 
         } catch (IllegalArgumentException e) {
@@ -22,15 +22,16 @@ public class Main {
         }
         System.out.println("LISTADO");
         crud.listarPeliculas();
+        System.out.println("BORRAR");
+        crud.eliminarPelicula("Civil War");
         System.out.println("INSERTO");
         try {
-            crud.insertarPelicula(new Pelicula("Civil War"));
+            crud.insertarPelicula(new Pelicula("Rafa"));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        System.out.println("ELIMINO");
+      
         
-        crud.eliminarPelicula("Z");
         System.out.println("LISTO");
         crud.listarPeliculas();
         System.out.println("INSERTO");
@@ -43,6 +44,12 @@ public class Main {
         }
         System.out.println("BUSCAR");
         crud.buscarPelicula("Roma");
+        try {
+        crud.eliminarPelicula("terminator");    
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
         
 
     }
