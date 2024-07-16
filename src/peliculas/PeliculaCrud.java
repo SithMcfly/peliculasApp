@@ -31,30 +31,37 @@ public class PeliculaCrud {
         }
     }
 
-    public void eliminarPelicula(String titulo) {
-
+    
+    public void eliminarPelicula (String titulo) throws IllegalArgumentException {
+        for(Pelicula pelicula : peliculas) {
+            if (pelicula.getTitulo().equalsIgnoreCase(titulo)){
+                peliculas.remove(pelicula);
+                System.out.printf("Se eliminó la pelicula %s\n", titulo);
+            } else {
+            throw new IllegalArgumentException("No se encontro la pelicula " + titulo);
+            }
+        }
+    }
+    /*public void eliminarPelicula(String titulo) {
         for (Pelicula pelicula : peliculas) {
             if (pelicula.getTitulo().equalsIgnoreCase(titulo)) {
                 peliculas.remove(pelicula);
                 System.out.println("Se ha eliminado la pelicula " + titulo);
-                break;
-            } else {
-                System.out.printf("No se ha encontrado la película %s\n", titulo.toUpperCase());
             }
         }
-    }
+        System.out.printf("No se ha encontrado la película %s\n", titulo.toUpperCase());
+    }*/
 
-    
     public void buscarPelicula(String titulo) {
         for (Pelicula pelicula : peliculas) {
             if (titulo.equalsIgnoreCase(pelicula.getTitulo())) {
-                pelicula.toString();
+                System.out.println(pelicula.toString());
                 break;
-            } else {
-                System.out.println("no encontrada");
             }
-        } 
+        }
+        System.out.println("no encontrada");
     }
+
     public void actualizarDatos(String titulo, String quien, String lugar, String fecha) {
 
         for (Pelicula pelicula : peliculas) {

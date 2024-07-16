@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         PeliculaCrud crud = new PeliculaCrud();
-
+        System.out.println("INSERTO");
         try {
             crud.insertarPelicula(new Pelicula("Z"));
             crud.insertarPelicula(new Pelicula("Civil War"));
@@ -20,20 +20,31 @@ public class Main {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("LISTADO");
         crud.listarPeliculas();
-        crud.eliminarPelicula("Z");
+        System.out.println("INSERTO");
         try {
-            crud.insertarPelicula(new Pelicula("Gattaca"));
-            crud.insertarPelicula(new Pelicula("Matrix"));
-            crud.insertarPelicula(new Pelicula("Z"));
-            crud.insertarPelicula(new Pelicula("Terminator"));
+            crud.insertarPelicula(new Pelicula("Civil War"));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        System.out.println("******************************");
+        System.out.println("ELIMINO");
+        
+        crud.eliminarPelicula("Z");
+        System.out.println("LISTO");
         crud.listarPeliculas();
-        System.out.println("******************************");
-        crud.buscarPelicula("Z");
+        System.out.println("INSERTO");
+        try {
+            crud.insertarPelicula(new Pelicula("Matrix"));
+            crud.insertarPelicula(new Pelicula("Matrix II"));
+            crud.insertarPelicula(new Pelicula("Roma"));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("BUSCAR");
+        crud.buscarPelicula("Roma");
+        
+
     }
-    
+
 }
